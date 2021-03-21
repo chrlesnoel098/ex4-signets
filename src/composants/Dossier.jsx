@@ -1,9 +1,14 @@
 import './Dossier.scss'; 
 import { IconButton } from '@material-ui/core';
 import SortIcon from '@material-ui/icons/Sort';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import imageDefaut from '../images/couverture.webp';
+import OuvrirMenuVert from './OuvrirMenuVert';
 
 export default function Dossier({id, nom, couleur, datemodif, couverture}) {
+
+  if(couverture=="" ){
+    couverture = imageDefaut;
+  }
 
   return (
     <article className="Dossier" style={{backgroundColor: couleur}}>
@@ -18,7 +23,7 @@ export default function Dossier({id, nom, couleur, datemodif, couverture}) {
         <p>Modifié : {formaterDate(datemodif)}</p>
       </div>
       <IconButton className="modifier" aria-label="modifier" size="small">
-        <MoreVertIcon />
+        <OuvrirMenuVert />
       </IconButton>
     </article>
   );
